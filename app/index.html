@@ -24,16 +24,15 @@
 </head>
 
 <body layout="row" ng-cloak ng-controller="MainController as vm">
-
 	<!-- Side Navigation -->
 	<div ng-include="'dist/view/side-nav.html'" layout="vertical"></div>
-
 	<!-- Topbar-->
 	<div layout="column" flex id="wrapper">
 		<div ng-include="'dist/view/toolbar-header.html'"></div>
-		<md-content flex id="content">Main Content</md-content>
+		<md-content flex id="content">
+			<div ng-include="'dist/view/main-content.html'"></div>
+		</md-content>
 	</div>
-
 	<!--Angular Files-->
 	<script src="./bower_components/angular/angular.js"></script>
 	<script src="./bower_components/angular-animate/angular-animate.js"></script>

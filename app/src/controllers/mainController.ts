@@ -16,6 +16,7 @@ module ContactManagerApp {
                 })
         }
 
+        searchText: string = '';
         users: User[] = [];
         selected: User = null;
         message: string = "Hello from our controller";
