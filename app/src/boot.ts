@@ -8,7 +8,7 @@ module ContactManagerApp {
             $mdThemingProvider: angular.material.IThemingProvider) => {
             $mdIconProvider
                 .defaultIconSet('./css/svg/avatars.svg', 128)
-                .icon('phone', './css/svg/phone.svg', 24);
+                .icon('menu', './css/svg/menu.svg', 24);
             $mdThemingProvider.theme('default')
                 .primaryPalette('blue')
                 .accentPalette('red');

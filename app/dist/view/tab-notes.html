@@ -1,7 +1,7 @@
 <p ng-if="!vm.selected.notes.length" > No notes for {{vm.selected.name}}, yet </p>
 <md-content>
     <md-card ng-repeat ="note in vm.selected.notes | orderBy: '-date':true" >
-      <img src="card-image.png" class="md-card-image" alt="image caption">
+      
       <md-card-content>
         <h3>{{note.title}}</h3>
         <p>{{bote.date | date: 'MM/dd/yyyy'}}</p>
