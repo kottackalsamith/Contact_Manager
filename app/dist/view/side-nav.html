@@ -1,0 +1,24 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" md-whiteframe="4">
+    <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Contacts</h1>
+    </md-toolbar>
+    <div layout-padding>
+        <md-autocomplete md-selected-item="selectedItem" md-search-text="vm.searchText" md-items=" item in vm.users | filter: vm.searchText" md-item-text="item.name"
+            md-min-length="3" placeholder="filter">
+            <md-item-template>
+                <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.name}}</span>
+            </md-item-template>
+            
+        </md-autocomplete>
+    </div>
+    <md-content>
+        <md-list>
+            <md-list-item ng-repeat="user in vm.users | filter:vm.searchText |orderBy: 'name' ">
+                <md-button ng-click="vm.selectUser(user)" ng-class="{'selected': user === vm.selected }">
+                    <md-icon md-svg-icon="{{user.avatar}}" aria-label="label" class="avatar"></md-icon>
+                    {{user.name}}
+                </md-button>
+            </md-list-item>
+        </md-list>
+    </md-content>
+</md-sidenav>

@@ -40,4 +40,5 @@ bower_components
 
 typings
 
-dist/
+app/dist/**/*.js
+app/dist/**/*.map
