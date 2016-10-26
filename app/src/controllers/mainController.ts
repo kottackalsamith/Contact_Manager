@@ -2,10 +2,11 @@
 
 module ContactManagerApp {
     export class MainController {
-        static $inject = ['userService', '$mdSidenav', '$mdToast'];
+        static $inject = ['userService', '$mdSidenav', '$mdToast', '$mdDialog'];
         constructor(private userService: IUserService,
             private $mdSidenav: angular.material.ISidenavService,
-            private $mdToast: angular.material.IToastService) {
+            private $mdToast: angular.material.IToastService,
+            private $mdDialog: angular.material.IDialogService) {
             var self = this;
 
             this.userService
@@ -36,6 +37,21 @@ module ContactManagerApp {
             }
 
             this.tabIndex = 0;
+        }
+
+        clearNotes($event) {
+          var confirm =  this.$mdDialog.confirm()
+            .title('Are you sure you want to delete all notes?')
+            .textContent('All notes will be deleted, you can\'t undo this action')
+            .targetEvent($event)
+            .ok('Yes')
+            .cancel('No');
+
+            var self = this;
+            this.$mdDialog.show(confirm).then(() => {
+                self.selected.notes = [];
+                self.openToast('Cleared Notes');
+            }) ;
         }
 
         removeNote(note: Note): void {
